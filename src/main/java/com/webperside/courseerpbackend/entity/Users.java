@@ -12,7 +12,7 @@ import lombok.experimental.FieldDefaults;
 @RequiredArgsConstructor
 @Data
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class UserEn {
+public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
