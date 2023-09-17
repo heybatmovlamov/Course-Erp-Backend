@@ -9,5 +9,5 @@ import jakarta.persistence.Id;
 public class TestEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-   private int 
+    private int id;
 }

@@ -11,5 +11,5 @@ public interface UserRepository extends JpaRepository<Users, Long> {
     Users save(User user);
     Users getUserEnById(int id);
 
-    Users findAll
+//    Users findAll
 }
