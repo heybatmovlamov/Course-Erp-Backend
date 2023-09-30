@@ -5,13 +5,15 @@ services:
     image: postgres:14.5
     restart: always
     environment:
+      - POSTGRES_URL=jdbc:postgresql://localhost:5432/course_erp_db
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     ports:
       - '5432:5432'
     volumes:
-      - postgresql:/var/lib/postgresql
-#      - ../../docker-volumes/course-erp-db:/var/lib/postgresql/data
+#      - postgresql:/var/lib/postgres
+      - ../../docker-volumes/course-erp-db:/var/lib/postgresql/data
+#     - ../../docker-volumes/course-erp-db:/var/lib/postgresql/data
 #      - ./course-erp-db:/var/lib/postgresql/data
 #      - /usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/lib/postgresql/14/bin
 volumes:

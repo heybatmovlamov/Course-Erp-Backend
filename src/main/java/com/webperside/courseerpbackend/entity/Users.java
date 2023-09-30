@@ -1,11 +1,14 @@
 package com.webperside.courseerpbackend.entity;
 
-import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.FieldDefaults;
+
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "users")
 @AllArgsConstructor
@@ -17,22 +20,26 @@ public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @Column(length = 50)
-    String name;
-    @Column(length = 50)
-    String surname;
-    @Column(length = 30)
-    String status;
-    @Column()
-    int role_id;
-    @Column()
-    String email;
-    @Column(length = 20, nullable = false)
-    String phone_number;
-    @Column(nullable = false)
-    String password;
     @Column
-    Boolean is_deleted;
+    String name;
+    @Column
+    String surname;
+    @Column
+    String status;
+    @Column
+    int role_id;
+    @Column
+    String email;
+    @Column
+    String phone_number;
+    @Column
+    String password;
+
+//    @ManyToMany(fetch = FetchType.EAGER , cascade = CascadeType.ALL)
+//    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id" ,referencedColumnName = "id"),
+//        inverseJoinColumns = @JoinColumn(name = "role_id",referencedColumnName = "id"))
+//    private List<Role> roles = new ArrayList<>();
+
 
 
 }

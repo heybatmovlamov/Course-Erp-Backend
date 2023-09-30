@@ -9,19 +9,23 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class SwaggerConfig {
+//    @Bean
+//    public OpenAPI myOpenAPI(){
+//        Contact contact = new Contact();
+//        contact.setEmail("bezkoder@gmail.com");
+//        contact.setName("BezKoder");
+//        contact.setUrl("https://www.bezkoder.com");
+//        Info info = new Info()
+//                .title("Course Erp Api")
+//                .version("1.0")
+//                .contact(contact)
+//                .description("This app express endpoints to manage tutorials.")
+//                .termsOfService("https://www.bezkoder.com/terms");
+//        return new OpenAPI().info(info).addSecurityItem(new SecurityRequirement().addList("Authorization"));
+//    }
     @Bean
-    public OpenAPI myOpenAPI(){
-        Contact contact = new Contact();
-        contact.setEmail("bezkoder@gmail.com");
-        contact.setName("BezKoder");
-        contact.setUrl("https://www.bezkoder.com");
-        Info info = new Info()
-                .title("Course Erp Api")
-                .version("1.0")
-                .contact(contact)
-                .description("This app express endpoints to manage tutorials.")
-                .termsOfService("https://www.bezkoder.com/terms");
-        return new OpenAPI().info(info).addSecurityItem(new SecurityRequirement().addList("Authorization"));
+    public OpenAPI swaggerApiConfig(){
+        return new OpenAPI().info(new Info().title("Spring doc").version("1.0.0").description("Spring doc"));
     }
 
 }
