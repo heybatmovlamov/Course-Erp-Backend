@@ -5,18 +5,17 @@ import lombok.Data;
 import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
-@Entity(name = "Roles")
 @Data
+@Entity(name = "Roles")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Role {
     @Id
-    private Long id;
-    @Column
-    private String name;
-    @Column
-    boolean isDeleted;
-//    @OneToOne(cascade = CascadeType.ALL)
-//    @JoinColumn(name = "owner_id")
-//    private int owner_id;
-    }
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Long id;
+    String name;
+    @ManyToMany(mappedBy = "roles")
+    Set<Users>users=new HashSet<>();
+}

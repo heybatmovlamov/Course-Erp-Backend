@@ -8,38 +8,26 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-@Entity(name = "users")
-@AllArgsConstructor
-@RequiredArgsConstructor
 @Data
+@Entity(name = "users")
 @FieldDefaults(level = AccessLevel.PRIVATE)
 public class Users {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
-    @Column
+    Long id;
     String name;
-    @Column
     String surname;
-    @Column
-    String status;
-    @Column
-    int role_id;
-    @Column
     String email;
-    @Column
     String phone_number;
-    @Column
     String password;
-
-//    @ManyToMany(fetch = FetchType.EAGER , cascade = CascadeType.ALL)
-//    @JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id" ,referencedColumnName = "id"),
-//        inverseJoinColumns = @JoinColumn(name = "role_id",referencedColumnName = "id"))
-//    private List<Role> roles = new ArrayList<>();
-
-
-
+    @ManyToMany(fetch = FetchType.EAGER)
+            @JoinTable(name = "role_user",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    Set<Role>roles=new HashSet<>();
 }
