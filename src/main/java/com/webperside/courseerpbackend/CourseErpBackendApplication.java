@@ -13,6 +13,8 @@ import java.security.KeyPairGenerator;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 import java.util.Base64;
+import java.util.Date;
+import java.util.Scanner;
 
 @SpringBootApplication
 @RequiredArgsConstructor
@@ -20,7 +22,9 @@ public class 	CourseErpBackendApplication implements CommandLineRunner {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CourseErpBackendApplication.class, args);
+
 	}
+
 
 	private final SecurityProperties securityProperties;
 
